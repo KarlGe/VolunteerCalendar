@@ -2,4 +2,4 @@
 include '../includes/head.php';
 ?>
 
-<H1>Felidae Calendar</H1> 
+<H1>Felidae Awesome Calendar</H1> 
