@@ -1,0 +1,17 @@
+.inlineBlock{
+	display: inline-block;
+}
+
+/*  Database creation page  */
+
+#databaseCreationBox{
+	width:30em;
+	margin: 20em auto;
+}
+#databaseCreationBox a{
+	width: 15em;
+	display: block;
+	margin: 1em auto!important;
+}
+
+/* End database creation page  */

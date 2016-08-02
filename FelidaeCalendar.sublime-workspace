@@ -1,0 +1,563 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"game",
+				"gameresult"
+			],
+			[
+				"info",
+				"info12in12"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"getElement",
+				"GetElementByClass"
+			],
+			[
+				"getElem",
+				"GetElementByClass"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"new",
+				"newRoom"
+			],
+			[
+				"Toggl",
+				"ToggleLock"
+			],
+			[
+				"lockIm",
+				"lockImgArray"
+			],
+			[
+				"editable",
+				"editableFunction"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"filt",
+				"filteredRooms"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"delete",
+				"DeleteRoom"
+			],
+			[
+				"offli",
+				"offlineRooms"
+			],
+			[
+				"arra",
+				"arrayID"
+			],
+			[
+				"roomArra",
+				"roomArrayID"
+			],
+			[
+				"offlineR",
+				"offlineRoom"
+			],
+			[
+				"Get",
+				"GetLocalRoom"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"co",
+				"couch"
+			],
+			[
+				"mari",
+				"margin"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"subm",
+				"submitForm"
+			],
+			[
+				"data",
+				"dataToSend"
+			],
+			[
+				"feath",
+				"featherlight"
+			],
+			[
+				"feat",
+				"featherConfig"
+			],
+			[
+				"the",
+				"theFile"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"fio",
+				"font-family"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"border-rad",
+				"border-top-left-radius"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"firstIt",
+				"firstItemClass"
+			],
+			[
+				"firstI",
+				"firstItemClass"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/F/Dropbox/Web/Projects/GameSite/modules/ModuleAddGame.php",
+			"settings":
+			{
+				"buffer_size": 1857,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/Dropbox/Web/Projects/FelidaeCenter"
+	],
+	"file_history":
+	[
+		"/F/Dropbox/Web/Projects/FelidaeCenter/php/config.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/php/dbConnect.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/css/main.css",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/pages/home.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/app.ini",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/footer.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/header.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/index.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/css/normalize.css",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/pages/template.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/head.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/config.php",
+		"/F/Dropbox/Jobb/AHO - ArkitekturOgDesignHøyskolen/Studentprosjekter/Gruppe 10/NinjaGame/Assets/MoveTowards.cs",
+		"/F/Dropbox/Web/Projects/CSSWikiTest/wp-content/themes/twentysixteen/functions.php",
+		"/F/Spill/Steam/SteamApps/common/ProjectZomboid/jre64/lib/amd64/jvm.cfg",
+		"/F/Dropbox/Jobb/AHO - ArkitekturOgDesignHøyskolen/Studentprosjekter/Gruppe 5/Tap, Swipe & Flick/Ice Jumper (Til Karl G)/IceJumperInfo.txt",
+		"/E/Git/desert-deserter/.gitignore",
+		"/F/Dropbox/NITH/Unity5/DesertDeserter/DesertDeserterMPTest_Data/output_log.txt",
+		"/F/Dropbox/Web/Projects/GameSite/snippets/Header.php",
+		"/C/Users/Kgg/Documents/Almost Human/Legend of Grimrock 2/grimrock.cfg",
+		"/F/Dropbox/Web/Projects/GameSite/snippets/Footer.php",
+		"/F/Dropbox/Web/Projects/GameSite/modules/ModuleAddGame.php",
+		"/F/Dropbox/Web/Projects/GameSite/pages/home.php",
+		"/F/Dropbox/Web/Projects/GameSite/pages/12in12.php",
+		"/F/Dropbox/Web/Projects/GameSite/modules/Module12in12List.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/database.php",
+		"/F/Dropbox/Web/Projects/GameSite/pages/game.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/gameinfo.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/Info12in12.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/mysql_datamapper.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/imguploader.php",
+		"/F/Dropbox/Web/Projects/GameSite/js/main.js",
+		"/F/Dropbox/Web/Projects/GameSite/Test/SteamScrapeTest.php",
+		"/F/Dropbox/Web/Projects/GameSite/js/addGame.js",
+		"/F/Dropbox/Web/Projects/GameSite/php/addNewGame.php",
+		"/C/Users/Kgg/AppData/Roaming/Luxology/MODO901.CFG",
+		"/C/Users/Kgg/AppData/Roaming/Luxology/MODO_CL901.CFG",
+		"/C/Users/Kgg/Downloads/InControl-master/InControl-master/Assets/InControl/README.meta",
+		"/C/Users/Kgg/Downloads/InControl-master/InControl-master/README.markdown",
+		"/F/Dropbox/Web/Projects/KarlPortfolio/wp-content/themes/illustratr/style.css",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/game/dota/cfg/game_convars.vcfg",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/game/dota/cfg/machine_convars.vcfg",
+		"/F/Dropbox/Web/Projects/KarlPortfolio/index.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/init.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/imgReceive.php",
+		"/F/Dropbox/Web/Projects/CitySS/config.ini",
+		"/F/Dropbox/Web/Projects/KarlPortfolio/wp-content/themes/illustratr/page.php",
+		"/C/Users/KarlGustav/Downloads/lithosphere/run.py",
+		"/F/Dropbox/Web/Projects/GameSite/php/formreceive.php",
+		"/F/Dropbox/Web/Projects/CitySS/js/main.js",
+		"/F/Dropbox/Web/Projects/CitySS/php/addRoom.php",
+		"/F/Dropbox/Web/Projects/GameSite/css/featherLight.css",
+		"/F/Dropbox/Web/Projects/GameSite/modules/ModuleGameList.php",
+		"/F/Dropbox/Web/Projects/GameSite/js/plugins.js",
+		"/F/Dropbox/Web/Projects/GameSite/css/main.css",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/game/dota/cfg/user_keys_slot0.vcfg",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/game/dota/cfg/autoexec.cfg",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/dota/cfg/autoexec.cfg",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/game/dota/cfg/game_convars_vr.vcfg",
+		"/D/Spill/Steam/steamapps/common/dota 2 beta/game/dota/cfg/machine_convars_default.vcfg",
+		"/F/Dropbox/Web/Projects/CitySS/php/getRoom.php",
+		"/F/Dropbox/Web/Projects/CitySS/classes/RoomCheckDB.php",
+		"/F/Dropbox/Web/Projects/CitySS/classes/Room.php",
+		"/F/Dropbox/Web/Projects/CitySS/pages/roomOverview.php",
+		"/F/Dropbox/Web/Projects/CitySS/snippets/Footer.php",
+		"/F/Dropbox/Web/Projects/CitySS/snippets/Header.php",
+		"/F/Dropbox/Web/Projects/CitySS/snippets/phpInit.php",
+		"/F/Dropbox/Web/Projects/CitySS/php/editRoom.php",
+		"/F/Dropbox/Web/Projects/CitySS/classes/RoomListDB.php",
+		"/F/Dropbox/Web/Projects/CitySS/classes/DBHandler.php",
+		"/F/Dropbox/Web/Projects/CitySS/php/syncRooms.php",
+		"/F/Dropbox/Web/Projects/CitySS/css/main.css",
+		"/E/Git/RaidParty/.gitignore",
+		"/E/Git/Float/.gitignore",
+		"/F/Dropbox/Web/Projects/CitySS/php/deleteRoom.php",
+		"/F/Dropbox/Web/Projects/CitySS/css/offline.css",
+		"/F/Dropbox/Web/Projects/CitySS/js/jEditable.min.js",
+		"/F/Dropbox/Web/Projects/CitySS/php/getRooms.php",
+		"/F/Dropbox/Web/Projects/CitySS/js/offline.min.js",
+		"/F/Dropbox/Web/Projects/CitySS/classes/dbFunctions.php",
+		"/C/xampp/php/logs/php_error_log",
+		"/F/Dropbox/Web/Projects/CitySS/classes/editRoom.php",
+		"/F/Dropbox/Web/Projects/CitySS/js/jEditable.js",
+		"/F/Dropbox/Web/Projects/CitySS/index.php",
+		"/F/Dropbox/Web/Projects/CitySS/classes/dbconn.php",
+		"/F/Dropbox/Web/Projects/CitySS/classes/dbhandler.php",
+		"/F/Dropbox/Web/Projects/GameSite/index.php",
+		"/C/Users/KarlGustav/AppData/Roaming/Luxology/Configs/FolderTemplate.CFG",
+		"/C/Users/KarlGustav/AppData/Roaming/Luxology/MODO_CL901.CFG",
+		"/C/Users/KarlGustav/AppData/Roaming/Luxology/MODO901.CFG",
+		"/C/Users/KarlGustav/AppData/Roaming/Luxology/Configs/eterea_weightTools/index.cfg",
+		"/C/Users/KarlGustav/AppData/Roaming/Luxology/Configs/i_lx_mirror_vmap/index.cfg",
+		"/C/Users/KarlGustav/AppData/Roaming/Luxology/Configs/mc_lxMirrorWeights/index.cfg",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/snippets/projects.php",
+		"/E/Git/Float/HalfbyteSonenGameJam/WebBuild/WebBuild.html",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/templates/unityProject.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/tags/unityWeb.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/content/2-projects/4-unityTest/unityproject.txt",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/templates/home.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/snippets/footer.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/assets/css/main.css",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/snippets/header.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/snippets/logo.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/templates/default.php",
+		"/F/Dropbox/Web/Projects/KirbyTest/site/templates/project.php",
+		"/C/Users/KarlGustav/Desktop/UtenSkin.jpg",
+		"/F/Dropbox/Web/Projects/GameTest/php/init.php",
+		"/F/Dropbox/Web/Projects/GameTest/php/addNewGame.php",
+		"/F/Dropbox/Web/Projects/GameTest/php/classes/imguploader.php",
+		"/C/Users/KarlGustav/Desktop/GTAChecksum.py",
+		"/F/Spill/GTAV/GTAChecksum.py",
+		"/F/Dropbox/Web/Projects/GameSite/modules/ModuleAddGame.html",
+		"/F/Dropbox/Web/Projects/GameTest/main.js",
+		"/F/Dropbox/Web/Projects/GameSite/Test/index.html",
+		"/F/Dropbox/Web/Projects/GameSite/Test/main.js",
+		"/F/Dropbox/Web/Projects/GameSite/phpinfo.php",
+		"/F/Dropbox/Web/Projects/GameSite/css/dropzone.js",
+		"/F/Dropbox/Web/Projects/GameSite/php/database.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/imguploader.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/dbclose.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/GameInfo.php",
+		"/F/Dropbox/Web/Projects/GameSite/php/classes/MySQL_DataMapper.php",
+		"/C/Users/KarlGustav/Desktop/featherlight-1.0.3/index.html",
+		"/F/Dropbox/Web/Projects/GameSite/index.html",
+		"/F/Dropbox/Web/Projects/GameSite/README.md",
+		"/F/Dropbox/Web/Projects/Pia_Koken/koken/storage/themes/custom/js/main.js",
+		"/F/Dropbox/Web/Projects/Pia_Koken/koken/storage/themes/custom/css/main.css",
+		"/F/Dropbox/Web/Projects/Pia_Koken/koken/storage/themes/custom/albums.lens"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"html",
+			"GetElementByClass",
+			"moduleadd",
+			"media",
+			"addroom",
+			"submitform",
+			"ModuleAddGame",
+			"featherlight",
+			"feather",
+			"Sircle",
+			"sircle",
+			"Sircle",
+			"getroom",
+			"objects[roomArrayID]",
+			"getroom",
+			"greenLock",
+			"greenlock",
+			" = path+",
+			"srcArray[",
+			"show",
+			"showIn",
+			"arrayId",
+			"Id",
+			"room.roomId",
+			"[i]",
+			"Rooms",
+			"ajax",
+			"if(online",
+			"ajax",
+			"if(online",
+			"$room",
+			"poster =",
+			"atom type=\"Path\"",
+			"hash type=\"Path\"",
+			"logo",
+			"*",
+			"finfo",
+			"'upfile'",
+			"upfile",
+			"conn",
+			"include",
+			"junction_master",
+			"active",
+			"children",
+			"active",
+			"theme",
+			"81",
+			"80",
+			"localhost"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Circle",
+			"circle",
+			"Circle",
+			"data",
+			"lockType",
+			", src:",
+			"srcArray.push({type:",
+			"arrayID",
+			"ID",
+			"room.arrayId",
+			"[roomArrayID]",
+			"objects",
+			"$roomARray",
+			"$fileIdentifier",
+			"junction-master"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/F/Dropbox/Web/Projects/GameSite/modules/ModuleAddGame.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								825,
+								814
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "FelidaeCalendar.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
