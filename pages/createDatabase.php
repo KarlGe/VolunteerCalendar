@@ -1,15 +1,19 @@
 <?php
+	// This file doesn't include config.php to avoid redirecting loop because of dbConnect.php
+    $ini = parse_ini_file('../app.ini');
 
-	$ini = parse_ini_file('../app.ini');
-	// Connect to MySQL
-	$link = mysql_connect($ini['host'], $ini['db_username'], $ini['db_password']);
-	// Make my_db the current database
-	$db_selected = mysql_select_db($ini['db_name'], $link);
+	spl_autoload_register(function ($class_name) {
+	    include "../php/classes/".$class_name . '.php';
+	});
 
-	if(!$db_selected && isset($_GET["makeDB"])){
-		$sql = 'CREATE DATABASE '.$ini['db_name'];
-		mysql_query($sql, $link);
-		$db_selected = mysql_select_db($ini['db_name'], $link);
+	$dbHandler = new DbHandler();
+
+	if(isset($_GET["makeDB"]) && !$dbHandler->CheckDBAvailable($ini)){
+		$dbHandler->CreateDB($ini);
+		$dbHandler->CreateTables($ini);
+	}
+	else if(isset($_GET["makeDB"]) && !$dbHandler->CheckTablesSetup($ini)){
+		$dbHandler->CreateTables($ini);
 	}
 ?>
 
@@ -31,7 +35,7 @@
 </head>
 
 <body>
-	<?php if($db_selected){ ?>
+	<?php if($dbHandler->CheckTablesSetup($ini)){ ?>
 		<div id="databaseCreationBox" class='alert alert-success'>
 			<p>The database is ready, please click the button below to return home, or contact admin for further questions</p>
 			<a <?php echo "href='../".$ini['homePage']."'" ?> class="btn btn-lg btn-info">Home</a>
