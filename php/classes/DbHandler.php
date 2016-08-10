@@ -1,5 +1,9 @@
 <?php
 class DbHandler{
+	public $ini;
+	function __construct() {
+		$this->ini = parse_ini_file('../app.ini'); 
+	}
 	function CreateDB($ini){
 		//Creates the database
 		try {
@@ -9,6 +13,7 @@ class DbHandler{
 	    	die("DB ERROR: ". $e->getMessage());
 	    	return false;
 		}
+		$initialDb = null;
 		return true;
 	}
 	function CreateTables($ini){
@@ -34,6 +39,7 @@ class DbHandler{
 		}
 
 		$pdo->commit();
+		$pdo = null;
 		return true;
 	}
 	function CheckDBAvailable($ini){
@@ -44,6 +50,7 @@ class DbHandler{
 			return false;
 		}
 		if(isset($pdo)){
+			$pdo = null;
 			return true;;
 		}
 		return false;
@@ -55,10 +62,13 @@ class DbHandler{
 		    if($results == 0) {
 		        return false;
 		    }
+		    $pdo = null;
 		    return true;	
 		}
 		catch(PDOException $e){
-			echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			if($ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
 			return false;
 		}
 	}

@@ -1,7 +1,9 @@
 .inlineBlock{
 	display: inline-block;
 }
-
+.dateDash{
+	font-size: 20px; 
+}
 /*  Database creation page  */
 
 #databaseCreationBox{
@@ -13,5 +15,13 @@
 	display: block;
 	margin: 1em auto!important;
 }
+#submitPersonForm li{
+	list-style: none;
+	display: inline-block;
+}
+#submitPersonForm label{
+	margin: auto;
+}
+
 
 /* End database creation page  */
