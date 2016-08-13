@@ -1,12 +1,6 @@
 <?php
-	// This file doesn't include config.php to avoid redirecting loop because of dbConnect.php
-    $ini = parse_ini_file('../app.ini');
 
-	spl_autoload_register(function ($class_name) {
-	    include "../php/classes/".$class_name . '.php';
-	});
-
-	$dbHandler = new DbHandler();
+	require_once('../php/internalConfig.php');
 
 	if(isset($_GET["makeDB"]) && !$dbHandler->CheckDBAvailable($ini)){
 		$dbHandler->CreateDB($ini);

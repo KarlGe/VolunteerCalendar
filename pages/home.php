@@ -6,7 +6,7 @@ include '../includes/header.php';
 	<ul>
 		<li>
 			<label for="addPersonName">Name</label><br />
-			<input type="text" id="addPersonName" placeholder="Name" name="name">
+			<input type="text" id="addPersonName" placeholder="Name" name="volunteerName">
 		</li>
 		<li>
 			<label for="addPersonDateFrom">From</label><br />
@@ -20,20 +20,20 @@ include '../includes/header.php';
 			<input type="submit" value="Submit">
 		</li>
 	</ul>
-	
 </form>
 
 
-    <?php 
 
-    	include("../php/classes/Calendar.php"); 
+<?php 
 
-  		$calendar = new Calendar();
-  		echo $calendar->show(03, 2019);
+	include("../php/classes/Calendar.php"); 
+
+	$calendar = new Calendar();
+	echo $calendar->show();
 
 
-    ?>
-
+?>
+<div id="infoMessageBox"> </div>
 <?php  
 include '../includes/footer.php';
 ?>

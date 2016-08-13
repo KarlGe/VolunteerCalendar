@@ -58,6 +58,7 @@ class DbHandler{
 	function CheckTablesSetup($ini){
 		try{
 			$pdo = new PDO("mysql:host=".$ini['host'].";dbname=".$ini['db_name'], $ini['db_username'], $ini['db_password']);
+
 			$results = $pdo->query("SHOW TABLES LIKE 'countries'")->rowCount();
 		    if($results == 0) {
 		        return false;
@@ -70,6 +71,77 @@ class DbHandler{
 				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
 			}
 			return false;
+		}
+	}
+	function AddPersonWithPeriod($name, $dateFrom, $dateTo, $phoneNum = null, $notes = null, $gender = null, $nationalityID = null, $email = null){
+		$volunteerID = $this->AddPerson($name);
+		//If there is an error, AddPerson will return an array with false at the first index and an error message on the second index, so we return that to display on the front end
+		if(is_array($volunteerID)){
+			return $volunteerID;
+		}
+
+		$periodID = $this->AddPeriod($volunteerID, $dateFrom, $dateTo);
+		//Same with AddPeriod
+		if(is_array($periodID)){
+			return $periodID;
+		}
+		return true;
+
+	}
+	function AddPerson($name, $phoneNum = null, $notes = null, $gender = null, $nationalityID = null, $email = null){
+		try{
+			$active = 1;
+			$conn = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+
+			// prepare sql and bind parameters
+		    $stmt = $conn->prepare("INSERT INTO ".$this->ini['db_volunteerTable']." (name, phoneNum, notes, gender, nationalityID, email, active)
+		    VALUES (:name, :phoneNum, :notes, :gender, :nationalityID, :email, :active)");
+		    $stmt->bindParam(':name', $name);
+		    $stmt->bindParam(':phoneNum', $phoneNum);
+		    $stmt->bindParam(':notes', $notes);
+		    $stmt->bindParam(':gender', $gender);
+		    $stmt->bindParam(':nationalityID', $nationalityID);
+		    $stmt->bindParam(':email', $email);
+		    $stmt->bindParam(':active', $active);
+
+		    $stmt->execute();
+
+		    $lastId = $conn->lastInsertId();
+
+		    $conn = null;
+		    return $lastId;	
+		}
+		catch(PDOException $e){
+			return array(false, $e->getMessage(). " trace: ".$e->getTraceAsString());
+		}
+	}
+	function AddPeriod($volunteerID, $dateFrom, $dateTo, $moneyOwed = null, $moneyPaid = null, $contractSigned = null){
+		try{
+			$active = 1;
+			$dateFrom = date('Y-m-d', strtotime(str_replace('-', '/', $dateFrom)));
+			$dateTo = date('Y-m-d', strtotime(str_replace('-', '/', $dateTo)));
+			$conn = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+
+			// prepare sql and bind parameters
+		    $stmt = $conn->prepare("INSERT INTO ".$this->ini['db_periodTable']." (volunteerID, dateFrom, dateTo, moneyOwed, moneyPaid, contractSigned, active)
+		    VALUES (:volunteerID, :dateFrom, :dateTo, :moneyOwed, :moneyPaid, :contractSigned, :active)");
+		    $stmt->bindParam(':volunteerID', $volunteerID);
+		    $stmt->bindParam(':dateFrom', $dateFrom);
+		    $stmt->bindParam(':dateTo', $dateTo);
+		    $stmt->bindParam(':moneyOwed', $moneyOwed);
+		    $stmt->bindParam(':moneyPaid', $moneyPaid);
+		    $stmt->bindParam(':contractSigned', $contractSigned);
+		    $stmt->bindParam(':active', $active);
+
+		    $stmt->execute();
+
+		    $lastId = $conn->lastInsertId();
+
+		    $conn = null;
+		    return true;	
+		}
+		catch(PDOException $e){
+			return array(false, $e->getMessage(). " trace: ".$e->getTraceAsString());
 		}
 	}
 }

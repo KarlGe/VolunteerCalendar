@@ -80,7 +80,7 @@
       $today_mon = date("m");
       $today_yea = date("Y");
       $class_day = ($cellContent == $today_day && $this->currentMonth == $today_mon && $this->currentYear == $today_yea ? "calendar_today" : "calendar_days");
-      return '<li class="' . $class_day . '">' . $cellContent . '</li>' . "\r\n";
+      return '<li class="' . $class_day . '"><span class="calendarDayNumber">' . $cellContent . '</span></li>' . "\r\n";
     }
     /**
     ** create navigation

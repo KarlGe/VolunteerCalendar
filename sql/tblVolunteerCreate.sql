@@ -11,7 +11,7 @@ CREATE TABLE volunteer (
 );
 CREATE TABLE volunteerHistory(
 	ID SMALLINT( 3 ) NOT NULL AUTO_INCREMENT,
-	volunteeerID SMALLINT( 3 ) NOT NULL,
+	volunteeeID SMALLINT( 3 ) NOT NULL,
 	dateFrom DATE NOT NULL,
 	dateTo DATE NOT NULL,
 	moneyOwed INT(5),
