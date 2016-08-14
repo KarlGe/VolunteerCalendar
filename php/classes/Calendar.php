@@ -13,6 +13,10 @@
     **/
     public function __construct() {
       $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
+      spl_autoload_register(function ($class_name) {
+        include "../php/classes/".$class_name . '.php';
+      });
+      $this->dbHandler = new DbHandler();
     }
     /********************* PROPERTY ********************/
     private $dayLabels = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
@@ -22,6 +26,8 @@
     private $currentDate = null;
     private $daysInMonth = 0;
     private $naviHref = null;
+    private $volunTeerTimePeriods = array();
+    private $dbHandler;
     /********************* PUBLIC **********************/
     /**
     ** print out the calendar
@@ -37,6 +43,8 @@
       } elseif (null == $month) {
         $month = date("m", time());
       }
+      $this->volunTeerTimePeriods = $this->dbHandler->GetPeriods($month, 'dateFrom, dateTo'); 
+
       $this->currentYear = $year;
       $this->currentMonth = $month;
       $this->daysInMonth = $this->_daysInMonth($month, $year);
@@ -68,19 +76,25 @@
           $this->currentDay = 1;
         }
       }
+
+      $numberOfVolunteersOnDay = $this->NumberOfTimesDayInDateRanges(Date($this->currentYear."-".$this->currentMonth."-".$this->currentDay), $this->volunTeerTimePeriods);
+      $volunteerText = "volunteers";
+
       if (($this->currentDay != 0) && ($this->currentDay <= $this->daysInMonth)) {
         $this->currentDate = date('Y-m-d', strtotime($this->currentYear . '-' . $this->currentMonth . '-' . ($this->currentDay)));
         $cellContent = $this->currentDay;
         $this->currentDay++;
       } else {
         $this->currentDate = null;
+        $numberOfVolunteersOnDay = null;
         $cellContent = null;
+        $volunteerText = null;
       }
       $today_day = date("d");
       $today_mon = date("m");
       $today_yea = date("Y");
       $class_day = ($cellContent == $today_day && $this->currentMonth == $today_mon && $this->currentYear == $today_yea ? "calendar_today" : "calendar_days");
-      return '<li class="' . $class_day . '"><span class="calendarDayNumber">' . $cellContent . '</span></li>' . "\r\n";
+      return '<li class="' . $class_day . '"><span class="calendarNumberOfVolunteers">'.$numberOfVolunteersOnDay.'</span><span class="calendarVolunteerText">'.$volunteerText.'</span><span class="calendarDayNumber">' . $cellContent . '</span></li>' . "\r\n";
     }
     /**
     ** create navigation
@@ -129,6 +143,20 @@
       if (null == ($year)) $year = date("Y",time());
       if (null == ($month)) $month = date("m",time());
       return date('t', strtotime($year . '-' . $month . '-01'));
+    }
+    // returns how many times a given date occurs within an array of date ranges
+    // Array expected to be an array of arrays containing the keys dateFrom and dateTo
+    private function NumberOfTimesDayInDateRanges($date, $dateRanges){
+      $numberOfOccurences = 0;
+      $dateTimeStamp = strtotime($date);
+      foreach ($dateRanges as $dateRange) {
+        $timeStampFrom = strtotime($dateRange["dateFrom"]);
+        $timeStampTo = strtotime($dateRange["dateTo"]);
+        if(($dateTimeStamp >= $timeStampFrom) && ($dateTimeStamp <= $timeStampTo)){
+          $numberOfOccurences ++;
+        }
+      }
+      return $numberOfOccurences;
     }
   }
 ?>

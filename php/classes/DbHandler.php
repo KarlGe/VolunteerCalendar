@@ -58,6 +58,7 @@ class DbHandler{
 	function CheckTablesSetup($ini){
 		try{
 			$pdo = new PDO("mysql:host=".$ini['host'].";dbname=".$ini['db_name'], $ini['db_username'], $ini['db_password']);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			$results = $pdo->query("SHOW TABLES LIKE 'countries'")->rowCount();
 		    if($results == 0) {
@@ -68,6 +69,27 @@ class DbHandler{
 		}
 		catch(PDOException $e){
 			if($ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
+		}
+	}
+	//Returns all time period entries that overlaps with the given month
+	function GetPeriods($month, $columns = "*"){
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$sql = "SELECT ".$columns." FROM ".$this->ini['db_periodTable']." WHERE :month BETWEEN MONTH(dateFrom) AND MONTH(dateTo)";
+			$sth = $dbh->prepare($sql);
+			$sth->bindParam(':month', $month, PDO::PARAM_INT);
+			$sth->execute();
+			$result = $sth->fetchAll();
+		    $dbh = null;
+		    return $result;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
 				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
 			}
 			return false;
@@ -92,7 +114,7 @@ class DbHandler{
 		try{
 			$active = 1;
 			$conn = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
-
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			// prepare sql and bind parameters
 		    $stmt = $conn->prepare("INSERT INTO ".$this->ini['db_volunteerTable']." (name, phoneNum, notes, gender, nationalityID, email, active)
 		    VALUES (:name, :phoneNum, :notes, :gender, :nationalityID, :email, :active)");
@@ -118,9 +140,10 @@ class DbHandler{
 	function AddPeriod($volunteerID, $dateFrom, $dateTo, $moneyOwed = null, $moneyPaid = null, $contractSigned = null){
 		try{
 			$active = 1;
-			$dateFrom = date('Y-m-d', strtotime(str_replace('-', '/', $dateFrom)));
-			$dateTo = date('Y-m-d', strtotime(str_replace('-', '/', $dateTo)));
+			$dateFrom = date('Y-m-d', strtotime($dateFrom));
+			$dateTo = date('Y-m-d', strtotime($dateTo));
 			$conn = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			// prepare sql and bind parameters
 		    $stmt = $conn->prepare("INSERT INTO ".$this->ini['db_periodTable']." (volunteerID, dateFrom, dateTo, moneyOwed, moneyPaid, contractSigned, active)

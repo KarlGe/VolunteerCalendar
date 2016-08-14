@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"font-s",
+				"font-size"
+			],
+			[
 				"game",
 				"gameresult"
 			],
@@ -104,10 +108,6 @@
 				"font-weight"
 			],
 			[
-				"font-s",
-				"font-style"
-			],
-			[
 				"subm",
 				"submitForm"
 			],
@@ -175,15 +175,7 @@
 			"file": "php/config.php",
 			"settings":
 			{
-				"buffer_size": 308,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "index.php",
-			"settings":
-			{
-				"buffer_size": 83,
+				"buffer_size": 402,
 				"line_ending": "Windows"
 			}
 		},
@@ -191,15 +183,7 @@
 			"file": "pages/home.php",
 			"settings":
 			{
-				"buffer_size": 808,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "css/styles.css",
-			"settings":
-			{
-				"buffer_size": 391,
+				"buffer_size": 822,
 				"line_ending": "Windows"
 			}
 		},
@@ -207,49 +191,7 @@
 			"file": "php/classes/Calendar.php",
 			"settings":
 			{
-				"buffer_size": 5584,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "css/calendar.css",
-			"settings":
-			{
-				"buffer_size": 2222,
-				"line_ending": "Windows",
-				"name": "/*************************** Calendar Top Navigati"
-			}
-		},
-		{
-			"file": "js/main.js",
-			"settings":
-			{
-				"buffer_size": 154,
-				"line_ending": "Windows",
-				"name": "$( document ).ready(function() {"
-			}
-		},
-		{
-			"file": "/C/Users/Kgg/Downloads/jquery-ui-1.12.0.custom/jquery-ui-1.12.0.custom/index.html",
-			"settings":
-			{
-				"buffer_size": 32588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "includes/header.php",
-			"settings":
-			{
-				"buffer_size": 1085,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "php/dbConnect.php",
-			"settings":
-			{
-				"buffer_size": 171,
+				"buffer_size": 5623,
 				"line_ending": "Windows"
 			}
 		},
@@ -257,40 +199,58 @@
 			"file": "pages/createDatabase.php",
 			"settings":
 			{
-				"buffer_size": 1699,
+				"buffer_size": 1472,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/styles.css",
+			"settings":
+			{
+				"buffer_size": 843,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 1051,
+				"line_ending": "Windows",
+				"name": "$( document ).ready(function() {"
+			}
+		},
+		{
+			"file": "php/SubmitPerson.php",
+			"settings":
+			{
+				"buffer_size": 454,
+				"line_ending": "Windows",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "php/internalConfig.php",
+			"settings":
+			{
+				"buffer_size": 186,
+				"line_ending": "Windows",
+				"name": "<?php"
 			}
 		},
 		{
 			"file": "php/classes/DbHandler.php",
 			"settings":
 			{
-				"buffer_size": 2084,
+				"buffer_size": 5041,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "includes/footer.php",
+			"file": "app.ini",
 			"settings":
 			{
-				"buffer_size": 215,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "sql/tblCountriesCreate.sql",
-			"settings":
-			{
-				"buffer_size": 10355,
-				"line_ending": "Windows",
-				"name": "CREATE TABLE 'countries' ("
-			}
-		},
-		{
-			"file": "sql/tblVolunteerCreate.sql",
-			"settings":
-			{
-				"buffer_size": 542,
+				"buffer_size": 382,
 				"line_ending": "Windows"
 			}
 		}
@@ -328,17 +288,23 @@
 	"expanded_folders":
 	[
 		"/F/Dropbox/Web/Projects/FelidaeCenter",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/css",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/includes",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/js",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/pages",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/php/classes",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/sql"
 	],
 	"file_history":
 	[
+		"/F/Dropbox/Web/Projects/FelidaeCenter/sql/tblVolunteerCreate.sql",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/php/dbConnect.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/sql/tblCountriesCreate.sql",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/footer.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/pages/createDatabase.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/header.php",
+		"/C/Users/Kgg/Downloads/jquery-ui-1.12.0.custom/jquery-ui-1.12.0.custom/index.html",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/css/calendar.css",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/php/classes/Calendar.php",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/HideSeek-master/demo/index.html",
+		"/F/Dropbox/Web/Projects/FelidaeCenter/index.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/css/styles.css",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/app.ini",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/php/classes/DbHandler.php",
@@ -347,11 +313,8 @@
 		"/F/Dropbox/Web/Projects/FelidaeCenter/php/classes/dbHandler.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/php/classes/database.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/php/config.php",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/php/dbConnect.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/css/main.css",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/pages/home.php",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/footer.php",
-		"/F/Dropbox/Web/Projects/FelidaeCenter/index.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/css/normalize.css",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/pages/template.php",
 		"/F/Dropbox/Web/Projects/FelidaeCenter/includes/head.php",
@@ -458,14 +421,7 @@
 		"/F/Dropbox/Web/Projects/GameTest/main.js",
 		"/F/Dropbox/Web/Projects/GameSite/Test/index.html",
 		"/F/Dropbox/Web/Projects/GameSite/Test/main.js",
-		"/F/Dropbox/Web/Projects/GameSite/phpinfo.php",
-		"/F/Dropbox/Web/Projects/GameSite/css/dropzone.js",
-		"/F/Dropbox/Web/Projects/GameSite/php/database.php",
-		"/F/Dropbox/Web/Projects/GameSite/php/imguploader.php",
-		"/F/Dropbox/Web/Projects/GameSite/php/dbclose.php",
-		"/F/Dropbox/Web/Projects/GameSite/php/classes/GameInfo.php",
-		"/F/Dropbox/Web/Projects/GameSite/php/classes/MySQL_DataMapper.php",
-		"/C/Users/KarlGustav/Desktop/featherlight-1.0.3/index.html"
+		"/F/Dropbox/Web/Projects/GameSite/phpinfo.php"
 	],
 	"find":
 	{
@@ -568,7 +524,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -577,15 +533,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 308,
+						"buffer_size": 402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								270,
-								252
+								340,
+								340
 							]
 						],
 						"settings":
@@ -596,52 +552,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 83,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								79,
-								40
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "pages/home.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 808,
+						"buffer_size": 822,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								637,
-								637
+								737,
+								737
 							]
 						],
 						"settings":
@@ -652,24 +580,82 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "css/styles.css",
+					"buffer": 2,
+					"file": "php/classes/Calendar.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 391,
+						"buffer_size": 5623,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								353,
-								353
+								3272,
+								3272
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 989.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pages/createDatabase.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "css/styles.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								636,
+								636
 							]
 						],
 						"settings":
@@ -680,85 +666,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "php/classes/Calendar.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5584,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								855,
-								855
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "css/calendar.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2222,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2222,
-								2222
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/*************************** Calendar Top Navigati",
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 549.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "js/main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 154,
+						"buffer_size": 1051,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								144,
-								144
+								888,
+								888
 							]
 						],
 						"settings":
@@ -770,146 +695,59 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "/C/Users/Kgg/Downloads/jquery-ui-1.12.0.custom/jquery-ui-1.12.0.custom/index.html",
+					"buffer": 6,
+					"file": "php/SubmitPerson.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32588,
+						"buffer_size": 454,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32121,
-								32072
+								303,
+								336
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6889.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "includes/header.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1085,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1039,
-								1039
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "php/dbConnect.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								165,
-								68
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "pages/createDatabase.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1699,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								544,
-								544
-							]
-						],
-						"settings":
-						{
+							"auto_name": "<?php",
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "php/classes/DbHandler.php",
+					"buffer": 7,
+					"file": "php/internalConfig.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2084,
+						"buffer_size": 186,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								480,
-								480
+								34,
+								34
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -919,89 +757,60 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "includes/footer.php",
+					"buffer": 8,
+					"file": "php/classes/DbHandler.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 215,
+						"buffer_size": 5041,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								144,
-								144
+								2655,
+								2655
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 879.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								335,
+								335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "sql/tblCountriesCreate.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10355,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								702,
-								702
-							]
-						],
-						"settings":
-						{
-							"auto_name": "CREATE TABLE 'countries' (",
-							"syntax": "Packages/SQL/SQL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "sql/tblVolunteerCreate.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 542,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								200,
-								200
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
 					"type": "text"
 				}
 			]
