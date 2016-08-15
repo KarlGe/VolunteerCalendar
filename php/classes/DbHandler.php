@@ -80,9 +80,28 @@ class DbHandler{
 			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			$sql = "SELECT ".$columns." FROM ".$this->ini['db_periodTable']." WHERE :month BETWEEN MONTH(dateFrom) AND MONTH(dateTo)";
+			$sql = "SELECT ".$columns." FROM volunteerhistory WHERE :month BETWEEN MONTH(dateFrom) AND MONTH(dateTo)";
 			$sth = $dbh->prepare($sql);
 			$sth->bindParam(':month', $month, PDO::PARAM_INT);
+			$sth->execute();
+			$result = $sth->fetchAll();
+		    $dbh = null;
+		    return $result;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
+		}
+	}
+	function GetVolunteersAndPeriodOnDate($date, $columns = "*"){
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "SELECT ".$columns." FROM volunteerhistory LEFT JOIN volunteer ON volunteerhistory.volunteerID=volunteer.ID WHERE :date BETWEEN dateFrom AND dateTo";
+			$sth = $dbh->prepare($sql);
+			$sth->bindParam(':date', $date, PDO::PARAM_STR);
 			$sth->execute();
 			$result = $sth->fetchAll();
 		    $dbh = null;
@@ -116,7 +135,7 @@ class DbHandler{
 			$conn = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			// prepare sql and bind parameters
-		    $stmt = $conn->prepare("INSERT INTO ".$this->ini['db_volunteerTable']." (name, phoneNum, notes, gender, nationalityID, email, active)
+		    $stmt = $conn->prepare("INSERT INTO volunteer (name, phoneNum, notes, gender, nationalityID, email, active)
 		    VALUES (:name, :phoneNum, :notes, :gender, :nationalityID, :email, :active)");
 		    $stmt->bindParam(':name', $name);
 		    $stmt->bindParam(':phoneNum', $phoneNum);
@@ -146,7 +165,7 @@ class DbHandler{
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			// prepare sql and bind parameters
-		    $stmt = $conn->prepare("INSERT INTO ".$this->ini['db_periodTable']." (volunteerID, dateFrom, dateTo, moneyOwed, moneyPaid, contractSigned, active)
+		    $stmt = $conn->prepare("INSERT INTO volunteerhistory (volunteerID, dateFrom, dateTo, moneyOwed, moneyPaid, contractSigned, active)
 		    VALUES (:volunteerID, :dateFrom, :dateTo, :moneyOwed, :moneyPaid, :contractSigned, :active)");
 		    $stmt->bindParam(':volunteerID', $volunteerID);
 		    $stmt->bindParam(':dateFrom', $dateFrom);

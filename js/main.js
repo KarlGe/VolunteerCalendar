@@ -24,13 +24,9 @@ $( document ).ready(function() {
 
 	 	event.preventDefault();
 	 })
-	/*$.ajax({
-  		method: "POST",
-  		url: "some.php",
-  		data: { name: "John", location: "Boston" }
-	}).done(function( msg ) {
-    	alert( "Data Saved: " + msg );
-  	});*/
+	$('tr[data-href]').on("click", function() {
+		document.location = $(this).data('href');
+	});
 });
 //The message should include necessary html tags for styling. for example <div class='alert alert-success'> </div>
 function ShowMessage(message){

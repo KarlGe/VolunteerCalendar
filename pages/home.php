@@ -23,16 +23,14 @@ include '../includes/header.php';
 </form>
 
 
+<div id="calendarWrapper">
+	<?php 
+		include("../php/classes/Calendar.php"); 
+		$calendar = new Calendar();
+		echo $calendar->show();
+	?>
+</div>
 
-<?php 
-
-	include("../php/classes/Calendar.php"); 
-
-	$calendar = new Calendar();
-	echo $calendar->show();
-
-
-?>
 <div id="infoMessageBox"> </div>
 <?php  
 include '../includes/footer.php';

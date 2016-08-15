@@ -4,6 +4,10 @@
 *{
 	font-family: "Raleway"!important;
 }
+main{
+	width:100em;
+	margin:auto; 
+}
 .inlineBlock{
 	display: inline-block;
 }
@@ -32,6 +36,10 @@
 	width: 15em;
 	display: block;
 	margin: 1em auto!important;
+}
+#submitPersonForm{
+	width:620px;
+	margin: auto;
 }
 #submitPersonForm li{
 	list-style: none;
@@ -76,3 +84,10 @@
 	color: #aaa;
 }
 /* End Calendar override */
+
+/* Date overview */
+tr[data-href]:hover{
+	background-color: #aaa!important;
+	cursor: pointer;
+}
+/* End Date overview */

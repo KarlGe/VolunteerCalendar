@@ -5,7 +5,7 @@
   * @website http://www.StarTutorial.com
   * @revised by Alessandro Marinuzzi
   * @website http://www.alecos.it/
-  * @revised by Karl Gustav Georgsen
+  * @revised by Karl Gustav Georgsen for Felidae 
   **/
   class Calendar {
     /**
@@ -93,8 +93,9 @@
       $today_day = date("d");
       $today_mon = date("m");
       $today_yea = date("Y");
+
       $class_day = ($cellContent == $today_day && $this->currentMonth == $today_mon && $this->currentYear == $today_yea ? "calendar_today" : "calendar_days");
-      return '<li class="' . $class_day . '"><span class="calendarNumberOfVolunteers">'.$numberOfVolunteersOnDay.'</span><span class="calendarVolunteerText">'.$volunteerText.'</span><span class="calendarDayNumber">' . $cellContent . '</span></li>' . "\r\n";
+      return '<li class="' . $class_day . '"><a href="day.php?date='.$this->currentDate.'"><span class="calendarNumberOfVolunteers">'.$numberOfVolunteersOnDay.'</span><span class="calendarVolunteerText">'.$volunteerText.'</span><span class="calendarDayNumber">' . $cellContent . '</span></a></li>' . "\r\n";
     }
     /**
     ** create navigation
