@@ -74,6 +74,53 @@ class DbHandler{
 			return false;
 		}
 	}
+	function GetVolunteer($id){
+		$volunteer = new Volunteer();
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$sql = "SELECT * FROM volunteer LEFT JOIN countries on volunteer.nationalityID = countries.ID WHERE volunteer.ID = :id";
+			$sth = $dbh->prepare($sql);
+			$sth->bindParam(':id', $id, PDO::PARAM_INT);
+			$sth->execute();
+			$result = $sth->fetch(PDO::FETCH_ASSOC);
+		    $dbh = null;
+
+		    print_r($this->GetPeriodsForVolunteer($id));
+
+		    $volunteer->name = $result['name'];
+
+		    return $volunteer;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
+		}
+	}
+	//Returns all time periods for a given volunteer
+	function GetPeriodsForVolunteer($volunteerID){
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$sql = "SELECT * FROM volunteerhistory WHERE volunteerID = :volunteerID";
+			$sth = $dbh->prepare($sql);
+			$sth->bindParam(':volunteerID', $volunteerID, PDO::PARAM_INT);
+			$sth->execute();
+			$result = $sth->fetchAll();
+		    $dbh = null;
+		    return $result;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
+		}
+	}
 	//Returns all time period entries that overlaps with the given month
 	function GetPeriods($month, $columns = "*"){
 		try{

@@ -6,7 +6,7 @@
 }
 main{
 	width:100em;
-	margin:auto; 
+	margin:4em auto 0 auto; 
 }
 .inlineBlock{
 	display: inline-block;
@@ -91,3 +91,11 @@ tr[data-href]:hover{
 	cursor: pointer;
 }
 /* End Date overview */
+/* Volunteer Page */
+#volunteerName{
+	border-bottom: 2px solid #AAA;
+}
+#volunteerName h1{
+	text-transform: capitalize;
+}
+/* End volunteer page */

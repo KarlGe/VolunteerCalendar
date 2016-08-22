@@ -27,5 +27,7 @@
   </head>
 
   <body>
+  <header>
+    <H1><a href="home.php">Felidae Awesome Calendar</a></H1> 
+  </header>
   <main>
-	<H1><a href="home.php">Felidae Awesome Calendar</a></H1> 
