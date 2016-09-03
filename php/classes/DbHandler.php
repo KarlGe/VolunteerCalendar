@@ -163,7 +163,8 @@ class DbHandler{
 					$result["transactionDate"],
 					$result["description"],
 					$result["amount"],
-					$result["paidByVolunteer"]
+					$result["paidByVolunteer"],
+					$result["active"]
 				);
 				array_push($transactionArray, $transaction);
 			}
@@ -260,7 +261,7 @@ class DbHandler{
 			return array(false, $e->getMessage(). " trace: ".$e->getTraceAsString());
 		}
 	}
-	function AddPeriod($volunteerID, $dateFrom, $dateTo, $moneyOwed = null, $moneyPaid = null, $contractSigned = null){
+	function AddPeriod($volunteerID, $dateFrom, $dateTo, $contractSigned = 0){
 		try{
 			$active = 1;
 			$dateFrom = date('Y-m-d', strtotime($dateFrom));
@@ -269,13 +270,11 @@ class DbHandler{
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			// prepare sql and bind parameters
-		    $stmt = $conn->prepare("INSERT INTO volunteerhistory (volunteerID, dateFrom, dateTo, moneyOwed, moneyPaid, contractSigned, active)
-		    VALUES (:volunteerID, :dateFrom, :dateTo, :moneyOwed, :moneyPaid, :contractSigned, :active)");
+		    $stmt = $conn->prepare("INSERT INTO volunteerhistory (volunteerID, dateFrom, dateTo, contractSigned, active)
+		    VALUES (:volunteerID, :dateFrom, :dateTo, :contractSigned, :active)");
 		    $stmt->bindParam(':volunteerID', $volunteerID);
 		    $stmt->bindParam(':dateFrom', $dateFrom);
 		    $stmt->bindParam(':dateTo', $dateTo);
-		    $stmt->bindParam(':moneyOwed', $moneyOwed);
-		    $stmt->bindParam(':moneyPaid', $moneyPaid);
 		    $stmt->bindParam(':contractSigned', $contractSigned);
 		    $stmt->bindParam(':active', $active);
 
@@ -317,6 +316,19 @@ class DbHandler{
 	function UpdateVolunteer($volunteerID, $column, $value){
 		$sql = "UPDATE volunteer SET volunteer.".$column." = :value WHERE volunteer.ID = :volunteerID";
 		$params = array('value' => $value, 'volunteerID' => $volunteerID);
+		$this->ExecuteSQL($sql,$params);
+	}
+	function UpdatePeriod($periodID, $column, $value){
+		$sql = "UPDATE volunteerhistory SET volunteerhistory.".$column." = :value WHERE volunteerhistory.ID = :periodID";
+		$params = array('value' => $value, 'periodID' => $periodID);
+		$this->ExecuteSQL($sql,$params);
+	}
+	function UpdateTransaction($transactionID, $column, $value){
+		$sql = "UPDATE volunteertransactionhistory SET volunteertransactionhistory.".$column." = :value WHERE volunteertransactionhistory.ID = :transactionID";
+		$params = array('value' => $value, 'transactionID' => $transactionID);
+		$this->ExecuteSQL($sql,$params);
+	}
+	function ExecuteSQL($sql, $params){
 		try{
 			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

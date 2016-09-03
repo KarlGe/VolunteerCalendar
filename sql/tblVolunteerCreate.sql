@@ -6,7 +6,7 @@ CREATE TABLE volunteer (
 	gender CHAR(1),
 	nationalityID INT(1),
 	email VARCHAR(50),
-	active BOOLEAN NOT NULL,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
 	PRIMARY KEY ( ID )
 );
 CREATE TABLE volunteerHistory(
@@ -14,9 +14,9 @@ CREATE TABLE volunteerHistory(
 	volunteerID SMALLINT( 3 ) NOT NULL,
 	dateFrom DATE NOT NULL,
 	dateTo DATE NOT NULL,
-	contractSigned BOOLEAN,
+	contractSigned BOOLEAN DEFAULT FALSE,
 	reg_date TIMESTAMP,
-	active BOOLEAN NOT NULL,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
 	PRIMARY KEY ( ID )
 );
 CREATE TABLE volunteerTransactionHistory(
@@ -26,6 +26,7 @@ CREATE TABLE volunteerTransactionHistory(
 	description VARCHAR(255),
 	reg_date TIMESTAMP,
 	amount INT(10),
-	paidByVolunteer BOOLEAN NOT NULL,
+	paidByVolunteer BOOLEAN NOT NULL DEFAULT TRUE,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
 	PRIMARY KEY( ID )
 );

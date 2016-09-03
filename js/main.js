@@ -1,3 +1,5 @@
+var waitingForReply = false;
+var transactionsHidden = true;
 $( document ).ready(function() {
     console.log( "ready!" );
     $( "#addPersonDateFrom" ).datepicker({
@@ -38,8 +40,28 @@ $( document ).ready(function() {
 		});
 		event.preventDefault();
 	})
-	$('tr[data-href]').on("click", function() {
-		document.location = $(this).data('href');
+	$('#contractCheckBox').click(function() {
+		if(!waitingForReply){
+			ContractCheckBoxClicked($(this));
+		}
+
+	});
+	$('.transactionTrash').click(function() {
+		if(!waitingForReply){
+			ToggleTransaction($(this).parent());
+		}
+	});
+	$( "#showDeletedButton" ).click(function() {
+		if(transactionsHidden){
+			$(this).html("Hide deleted");
+		}
+		else{
+			$(this).html("Show deleted");	
+		}
+  		ToggleDeletedTransactions();
+	});
+	$( "#transactionHistoryTable .deletedTransaction" ).each(function() {
+		$(this).hide();
 	});
 	$.fn.editable.defaults.mode = 'popup';
 	$('.edit').editable();
@@ -50,4 +72,73 @@ function ShowMessage(message){
 	$("#infoMessageBox").hide();
 	$("#infoMessageBox").html(message);
 	$("#infoMessageBox").slideDown(200).delay(5000).fadeOut(200);
+}
+function ContractCheckBoxClicked(element){
+	waitingForReply = true;
+	newValue = element.attr("value") == 1 ? 0 : 1;
+	$.post( "../php/UpdateVolunteer.php", { pk: element.attr("data-pk"), name: "contractSigned", value: newValue}).done(function( data ) {
+		$(element).attr("value", data);
+		if(data == 0){
+			element.find("img").addClass("hidden")
+		}
+		else {	
+			element.find("img").removeClass("hidden")
+		}
+    	waitingForReply = false;
+  	});
+}
+function ToggleDeletedTransactions(){
+	if(transactionsHidden){
+		$( "#transactionHistoryTable .deletedTransaction" ).each(function() {
+			$(this).hide();
+			$(this).show();
+		});	
+		transactionsHidden = false;
+	}
+	else{
+		$( "#transactionHistoryTable .deletedTransaction" ).each(function() {
+			$(this).hide();
+		});	
+		transactionsHidden = true;
+	}
+	
+}
+function ToggleTransaction(element){
+	waitingForReply = true;
+	if(element.attr("active") == 1){
+		$.post( "../php/UpdateTransaction.php", { pk: element.attr("data-pk"), name: "delete"}).done(function( data ) {
+			if(transactionsHidden){
+				element.hide();
+			}
+	    	waitingForReply = false;
+	    	element.attr("active", 0);
+	    	element.addClass("deletedTransaction")
+	    	trashcanElement = element.find('.trashCan');
+	    	trashcanElement.removeClass('trashCan');
+	    	trashcanElement.addClass('restore');
+	    	trashcanElement.html("Restore");
+	    	SetcurrentBalance();
+	  	});
+	}
+	else{
+		$.post( "../php/UpdateTransaction.php", { pk: element.attr("data-pk"), name: "restore"}).done(function( data ) {
+	    	waitingForReply = false;
+	    	element.attr("active", 1);
+	    	element.removeClass("deletedTransaction")
+	    	trashcanElement = element.find('.restore');
+	    	trashcanElement.removeClass('restore');
+	    	trashcanElement.addClass('trashCan');
+	    	trashcanElement.html("");
+			SetcurrentBalance();
+	  	});	
+	}
+}
+function SetcurrentBalance(){
+	total = 0;
+	$(".transactionAmount").each(function() {
+		if($(this).parent().attr("active") == 1){
+			total += parseInt($(this).html());
+		}
+	});
+	$('#transactionHistoryTotal span').html(total);
 }

@@ -113,6 +113,7 @@ tr:hover{
 }
 /* End Date overview */
 /* Volunteer Page */
+
 .noActivePeriodText{
 	text-align: center;
 	padding:2em;
@@ -163,6 +164,10 @@ tr:hover{
 #transactionHistory{
 	width: 50%;
 }
+#showDeletedButton{
+	position: absolute;
+	right:0;
+}
 #volunteerNotes{
 	padding-right: 1em;
 }
@@ -197,6 +202,12 @@ tr:hover{
 	border-radius: .1em;
 }
 .checked{
+	width:auto;
+	height:100%;
+	margin-top:-0.5em;
+}
+.hidden{
+	display: none;
 }
 .checkBox:hover{
 	cursor: pointer;
@@ -213,8 +224,49 @@ tr:hover{
 #submitTransactionForm ul{
 	padding-left:0!important;
 }
+#transactionHistorytable{
+	margin-bottom: .5em;
+}
+#transactionHistoryTable .editable{
+	display: inline-block;
+}
+.transactionAmount{
+	width:4em;
+	text-align: right;
+}
+.transactionTrash{
+	width:6em;
+	position: relative;
+	text-align: center;
+}
+.transactionTrash:hover{
+	cursor: pointer;
+}
+.transactionTrash:hover .trashCan{
+    background-position: 0 -14px; 
+}
+.transactionTrash .trashCan{
+	background-image: url("../img/trash.png");
+	background-repeat: no-repeat;
+	width: 14px;
+	height:14px;
+	display: inline-block;
+	position: absolute;
+	top:.2em;
+	left:2.5em;
+}
+.restore{
+	color: #333;
+}
+.transactionTrash:hover .restore{
+	color:#85e61e;
+}
 #transactionHistoryTotal{
 	font-size: 2em;
 	text-align: center;
+	margin-top: 1.5em;
+}
+.deletedTransaction{
+	color: #e61e25;
 }
 /* End volunteer page */

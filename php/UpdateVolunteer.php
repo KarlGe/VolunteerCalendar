@@ -18,5 +18,9 @@
 		if($_POST['name'] == 'notes'){
 			$dbHandler->UpdateVolunteer($_POST['pk'], 'notes', $_POST['value']);
 		}
+		if($_POST['name'] == 'contractSigned'){
+			$dbHandler->UpdatePeriod($_POST['pk'], 'contractSigned', $_POST['value']);
+			echo $_POST['value'];
+		}
 	}
 ?>

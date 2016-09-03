@@ -6,11 +6,11 @@ include '../includes/header.php';
 /// </summary>
 /// <param name="primaryKey">Some Parameter.</param>
 /// <returns>What this method returns.</returns>
-function PrintValue($primaryKey, $id, $value, $title, $altText, $dataType = "text"){
+function PrintValue($primaryKey, $id, $value, $title, $altText, $dataUrl, $dataType = "text"){
 	if(!isset($value) || $value == ""){
 		$value = $altText;
 	}
-	return '<div title="'.$title.'" class="edit" id="'.$id.'" data-type="'.$dataType.'" data-pk="'.$primaryKey.'" data-url="../php/UpdateVolunteer.php">'.$value.'</div>';
+	return '<div title="'.$title.'" class="edit" id="'.$id.'" data-type="'.$dataType.'" data-pk="'.$primaryKey.'" data-url="../php/'.$dataUrl.'">'.$value.'</div>';
 }
 if(isset($_GET['id'])):
 	$volunteer = $dbHandler->GetVolunteer(intval($_GET['id']));
@@ -68,19 +68,19 @@ if(isset($_GET['id'])):
 	</div>
 	<div class="volunteerContactInfo">
 			<span class="glyphicon glyphicon-earphone"> </span>
-			<?php echo PrintValue($volunteer->id, 'phoneNum', $volunteer->phoneNumber, "The volunteers phone number", "Click to add number"); ?>
+			<?php echo PrintValue($volunteer->id, 'phoneNum', $volunteer->phoneNumber, "The volunteers phone number", "Click to add number", "UpdateVolunteer.php"); ?>
 		<span class="glyphicon glyphicon-envelope"> </span>
-		<?php echo PrintValue($volunteer->id, 'email', $volunteer->email, "The volunteers email address", "Click to add email"); ?>
+		<?php echo PrintValue($volunteer->id, 'email', $volunteer->email, "The volunteers email address", "Click to add email", "UpdateVolunteer.php"); ?>
 	</div>
 </div>
 <?php if(isset($currentPeriod)): ?>
 	<div id="periodInfo">
 		<h2>Notes</h2>
 		<div id="volunteerNotes">
-			<?php echo PrintValue($volunteer->id, 'notes', $volunteer->notes, "Notes about the volunteer and his/her visit", "No notes found, click to add", "textarea"); ?>
+			<?php echo PrintValue($volunteer->id, 'notes', $volunteer->notes, "Notes about the volunteer and his/her visit", "No notes found, click to add", "UpdateVolunteer.php", "textarea"); ?>
 		</div>
 		<div id="contractSigned"> 
-			<span>Contract signed</span> <span class="checkBox"> </span>
+			<span>Contract signed</span> <span class="checkBox" data-pk="<?php echo $currentPeriod->id; ?>" value="<?php echo $currentPeriod->contractSigned; ?>" id="contractCheckBox"> <img class="checked <?php echo $currentPeriod->contractSigned != 1 ? "hidden" : ""; ?>" src="../img/checkmark.png" /> </span>
 		</div>
 	</div>
 	<div id="transactionHistory">
@@ -113,24 +113,29 @@ if(isset($_GET['id'])):
 			</ul>
 		</form>
 		<?php if(count($currentPeriod->transactions) > 0): ?>
-			<table class="table table-striped">
+			<table id="transactionHistoryTable" class="table table-striped">
 				<thead>
 						<th>Description</th>
 						<th>Paid by</th>
 						<th>Date</th>
 						<th>Amount</th>
+						<th></th>
 				</thead>
 			<?php foreach ($currentPeriod->transactions as $transaction): ?>
-				<tr>	
-					<td><?php echo $transaction->description ?></td>	
+				<tr data-pk="<?php echo $transaction->id; ?>" active="<?php echo $transaction->active;?>" <?php echo $transaction->active == 0 ? 'class="deletedTransaction"' : ""; ?>>	
+					<td>
+						<?php echo PrintValue($transaction->id, 'description', $transaction->description, "Description of the transaction", "Click to add description", "UpdateTransaction.php"); ?>
+					</td>
 					<td><?php echo $transaction->paidByVolunteer == 0 ? "Felidae" : "Volunteer" ?></td>
 					<td><?php echo date("d M Y",strtotime($transaction->transactionDate)) ?></td>	
-					<td><?php echo $transaction->paidByVolunteer == 1 ? $transaction->amount : $transaction->amount * -1 ?></td>
+					<td class="transactionAmount"><?php echo $transaction->paidByVolunteer == 1 ? $transaction->amount : $transaction->amount * -1 ?></td>
+					<td class="transactionTrash"><?php echo $transaction->active == 0 ? '<span class="restore">Restore</span>' : '<span class="trashCan"></span>'; ?></td>
 				</tr>
 			<?php endforeach; ?>		
 			</table>
+			<div class="btn btn-default" id="showDeletedButton">Show deleted</div>
 			<div id="transactionHistoryTotal">
-				Current balance: <?php echo $currentPeriod->GetTransactionTotal()." ".$ini['currency']; ?>
+				Current balance: <?php echo "<span>".$currentPeriod->GetTransactionTotal()."</span> ".$ini['currency']; ?>
 			</div>
 		<?php else: ?>
 			<h2>No transactions found for this period</h2>

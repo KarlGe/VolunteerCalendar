@@ -3,7 +3,7 @@ include '../includes/header.php';
 
 $date = $_GET["date"];
 
-$volunteers = $dbHandler->GetVolunteersWithPeriodOnDate($date);
+$volunteerPeriods = $dbHandler->GetVolunteersWithPeriodOnDate($date);
 
 ?>
 
@@ -13,11 +13,11 @@ $volunteers = $dbHandler->GetVolunteersWithPeriodOnDate($date);
 		<th>Date from</th>
 		<th>Date to</th>
 	</tr>
-<?php foreach ($volunteers as $volunteer): ?>
+<?php foreach ($volunteerPeriods as $volunteerPeriod): ?>
 	<tr>	
-		<td><a href="volunteerPage.php?id=<?php echo $volunteer["volunteerID"] ?>"><?php echo $volunteer["name"] ?></a></td>	
-		<td><a href="volunteerPage.php?id=<?php echo $volunteer["volunteerID"] ?>"><?php echo date('d M Y', strtotime($volunteer["dateFrom"])) ?></a></td>	
-		<td><a href="volunteerPage.php?id=<?php echo $volunteer["volunteerID"] ?>"><?php echo date('d M Y', strtotime($volunteer["dateFrom"])) ?></a></td>	
+		<td><a href="volunteerPage.php<?php echo "?id=".$volunteerPeriod["volunteerID"]."&periodID=".$volunteerPeriod["ID"] ?>"><?php echo $volunteerPeriod["name"] ?></a></td>	
+		<td><a href="volunteerPage.php<?php echo "?id=".$volunteerPeriod["volunteerID"]."&periodID=".$volunteerPeriod["ID"] ?>"><?php echo date('d M Y', strtotime($volunteerPeriod["dateFrom"])) ?></a></td>	
+		<td><a href="volunteerPage.php<?php echo "?id=".$volunteerPeriod["volunteerID"]."&periodID=".$volunteerPeriod["ID"] ?>"><?php echo date('d M Y', strtotime($volunteerPeriod["dateFrom"])) ?></a></td>	
 	</tr>
 <?php endforeach; ?>
 </table>
