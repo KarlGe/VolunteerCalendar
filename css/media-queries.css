@@ -48,7 +48,7 @@ and (orientation : portrait) {
 @media only screen 
 and (min-width : 1224px) {
 /* Styles */
-	body{
+	main, #headerContent{
 		width:1150px;
 	}
 }
@@ -56,19 +56,34 @@ and (min-width : 1224px) {
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1450px) {
-	body{
+	main, #headerContent{
 		width:1400px;
 	}
 }
 /* Large screens ----------- */
 @media only screen 
 and (max-width : 900px) {
+	header{
+		text-align: center;
+	}
+	#headerContent{
+		width:100%;
+	}
+	#volunteerSearch{
+		display: block;
+		position: relative;
+		margin:auto; 
+	}
 	body{
 		width:100%;
 	}
-	main, header{
+	header{
+		padding-bottom: 1em;
+	}
+	main{
 		width:90%;
-		margin:auto;
+		margin-left:auto;
+		margin-right:auto;
 	}
 	#periodInfo, #transactionHistory{
 		float: none;
@@ -82,9 +97,6 @@ and (max-width : 900px) {
 }
 @media only screen 
 and (max-width : 850px) {
-	header{
-		text-align: center;
-	}
 	header a{
 		display: block;
 	}
@@ -105,7 +117,7 @@ and (max-width : 850px) {
 	}
 }
 @media only screen 
-and (max-width : 700px) {
+and (max-width : 768px) {
 	.volunteerContactInfo, #volunteerDates{
 		display: block;
 		text-align: center;

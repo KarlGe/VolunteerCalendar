@@ -31,6 +31,20 @@
 
   <body>
   <header>
-    <H1><a href="home.php">Felidae Awesome Calendar</a></H1> 
+    <div id="headerContent">
+      <H1><a href="home.php">Felidae Awesome Calendar</a></H1> 
+      <article id="volunteerSearch">
+        <input id="search-hidden-mode" name="search" placeholder="Search for volunteers here" type="text" data-list=".hidden_mode_list" data-nodata="No results found" autocomplete="off">
+        <hr style="display: none;"/>
+        <ul style="display: none;" class="vertical hidden_mode_list">
+          <?php 
+            $volunteers = $dbHandler->GetAllVolunteers();
+            foreach ($volunteers as $volunteer) :
+          ?>
+          <li style="display: none;"><a href="volunteerPage.php<?php echo "?id=".$volunteer->id;?>"><?php echo $volunteer->name; ?></a></li>
+          <?php endforeach ?>
+        </ul>
+      </article>
+    </div>
   </header>
   <main>

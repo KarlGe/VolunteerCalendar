@@ -74,6 +74,24 @@ class DbHandler{
 			return false;
 		}
 	}
+	function GetAllVolunteers(){
+		$volunteers = array();
+		$sql = "SELECT volunteer.*, countries.country FROM volunteer LEFT JOIN countries on volunteer.nationalityID = countries.ID";
+		$results = $this->ExecuteFetch($sql,null);
+		foreach ($results as $result) {
+			$volunteer = new Volunteer(
+				$result['ID'],
+				$result['name'],
+				$result['phoneNum'],
+				$result['country'],
+				$result['notes'],
+				$result['gender'],
+				$result['email']
+			);
+			array_push($volunteers, $volunteer);
+		}
+		return $volunteers;
+	}
 	function GetVolunteer($id){
 		try{
 			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
@@ -337,6 +355,25 @@ class DbHandler{
 			$sth->execute($params);
 		    $dbh = null;
 		    return true;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
+		}
+	}
+	function ExecuteFetch($sql, $params){
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$sth = $dbh->prepare($sql);
+			$sth->execute($params);
+		    
+			$result = $sth->fetchAll();
+		    $dbh = null;
+		    return $result;	
 		}
 		catch(PDOException $e){
 			if($this->ini['debug']){

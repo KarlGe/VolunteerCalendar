@@ -143,6 +143,7 @@ if(isset($_GET['id'])):
 	</div>
 	<div class="clearFix padding1emtop"> <hr /> </div>
 <?php else: ?>
+	<h2>No period selected, select one from the visiting history</h2>
 <?php endif ?>
 <h2>Visiting history</h2>
 	<table class="table table-striped">

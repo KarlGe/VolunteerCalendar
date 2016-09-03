@@ -1,7 +1,25 @@
 var waitingForReply = false;
 var transactionsHidden = true;
 $( document ).ready(function() {
-    console.log( "ready!" );
+	$('#search-hidden-mode').hideseek({
+    	hidden_mode: true,
+  		ignore_accents: true,
+  		navigation: true,
+  		ignore: '.ignore'
+  	});
+
+	$('#volunteerSearch').on('click', function(e) {
+	    e.stopPropagation();
+  		$("#volunteerSearch hr").show();
+  		$(".hidden_mode_list").show();
+	});
+
+	$(document).on('click', function (e) {
+		$("#search-hidden-mode").addClass("activeSearch");
+		$("#volunteerSearch hr").hide();
+  		$(".hidden_mode_list").hide();
+	});
+
     $( "#addPersonDateFrom" ).datepicker({
 		inline: true,
 		dateFormat: "dd-mm-yy"
