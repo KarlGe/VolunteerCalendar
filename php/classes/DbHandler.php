@@ -13,7 +13,7 @@ class DbHandler{
 	    	die("DB ERROR: ". $e->getMessage());
 	    	return false;
 		}
-		$initialDb = null;
+		$initialDb = null;	
 		return true;
 	}
 	function CreateTables($ini){
@@ -75,21 +75,28 @@ class DbHandler{
 		}
 	}
 	function GetVolunteer($id){
-		$volunteer = new Volunteer();
 		try{
 			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			$sql = "SELECT * FROM volunteer LEFT JOIN countries on volunteer.nationalityID = countries.ID WHERE volunteer.ID = :id";
+			$sql = "SELECT volunteer.*, countries.country FROM volunteer LEFT JOIN countries on volunteer.nationalityID = countries.ID WHERE volunteer.ID = :id";
 			$sth = $dbh->prepare($sql);
 			$sth->bindParam(':id', $id, PDO::PARAM_INT);
 			$sth->execute();
 			$result = $sth->fetch(PDO::FETCH_ASSOC);
 		    $dbh = null;
 
-		    print_r($this->GetPeriodsForVolunteer($id));
 
-		    $volunteer->name = $result['name'];
+			$volunteer = new Volunteer(
+				$result['ID'],
+				$result['name'],
+				$result['phoneNum'],
+				$result['country'],
+				$result['notes'],
+				$result['gender'],
+				$result['email']
+			);
+		    $volunteer->periods = $this->GetPeriodsForVolunteer($id);
 
 		    return $volunteer;	
 		}
@@ -106,13 +113,63 @@ class DbHandler{
 			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			$sql = "SELECT * FROM volunteerhistory WHERE volunteerID = :volunteerID";
+			$sql = "SELECT * FROM volunteerhistory WHERE volunteerID = :volunteerID ORDER BY dateTo";
 			$sth = $dbh->prepare($sql);
 			$sth->bindParam(':volunteerID', $volunteerID, PDO::PARAM_INT);
 			$sth->execute();
-			$result = $sth->fetchAll();
+			$results = $sth->fetchAll();
+
+			$volunteerArray = array();
+			foreach ($results as $result) {
+				$volunteerPeriod = new VolunteerPeriod(
+					$result["ID"],
+					$result["dateFrom"],
+					$result["dateTo"],
+					$result["contractSigned"],
+					$result["reg_date"],
+					$result["active"]
+				);
+
+				$volunteerPeriod->transactions = $this->GetTransactionsForPeriod($volunteerPeriod->id);
+
+				array_push($volunteerArray, $volunteerPeriod);
+			}
 		    $dbh = null;
-		    return $result;	
+		    return $volunteerArray;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
+		}
+	}
+	function GetTransactionsForPeriod($periodID){
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$sql = "SELECT * FROM volunteerTransactionHistory WHERE periodID = :periodID ORDER BY transactionDate";
+			$sth = $dbh->prepare($sql);
+			$sth->bindParam(':periodID', $periodID, PDO::PARAM_INT);
+			$sth->execute();
+			$results = $sth->fetchAll();
+
+			$transactionArray = array();
+			foreach ($results as $result) {
+				$transaction = new Transaction(
+					$result["ID"],
+					$result["periodID"],
+					$result["transactionDate"],
+					$result["description"],
+					$result["amount"],
+					$result["paidByVolunteer"]
+				);
+				array_push($transactionArray, $transaction);
+			}
+
+		    $dbh = null;
+		    return $transactionArray;	
 		}
 		catch(PDOException $e){
 			if($this->ini['debug']){
@@ -142,7 +199,7 @@ class DbHandler{
 			return false;
 		}
 	}
-	function GetVolunteersAndPeriodOnDate($date, $columns = "*"){
+	function GetVolunteersWithPeriodOnDate($date, $columns = "*"){
 		try{
 			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -231,6 +288,49 @@ class DbHandler{
 		}
 		catch(PDOException $e){
 			return array(false, $e->getMessage(). " trace: ".$e->getTraceAsString());
+		}
+	}
+	function AddTransaction($periodID, $transactionAmount, $transactionDate, $paidByVolunteer, $description){
+		try{
+			$date = date('Y-m-d', strtotime($transactionDate));
+			$conn = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			// prepare sql and bind parameters
+		    $stmt = $conn->prepare("INSERT INTO volunteerTransactionHistory (periodID, amount, transactionDate, paidByVolunteer, description)
+		    VALUES (:periodID, :amount, :transactionDate, :paidByVolunteer, :description)");
+		    $stmt->bindParam(':periodID', $periodID);
+		    $stmt->bindParam(':amount', $transactionAmount);
+		    $stmt->bindParam(':transactionDate', $date);
+		    $stmt->bindParam(':paidByVolunteer', $paidByVolunteer);
+		    $stmt->bindParam(':description', $description);
+
+		    $stmt->execute();
+
+		    $conn = null;
+		    return true;	
+		}
+		catch(PDOException $e){
+			return array(false, $e->getMessage(). " trace: ".$e->getTraceAsString());
+		}
+	}
+	function UpdateVolunteer($volunteerID, $column, $value){
+		$sql = "UPDATE volunteer SET volunteer.".$column." = :value WHERE volunteer.ID = :volunteerID";
+		$params = array('value' => $value, 'volunteerID' => $volunteerID);
+		try{
+			$dbh = new PDO("mysql:host=".$this->ini['host'].";dbname=".$this->ini['db_name'], $this->ini['db_username'], $this->ini['db_password']);
+			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$sth = $dbh->prepare($sql);
+			$sth->execute($params);
+		    $dbh = null;
+		    return true;	
+		}
+		catch(PDOException $e){
+			if($this->ini['debug']){
+				echo $e->getMessage(). " trace: ".$e->getTraceAsString();
+			}
+			return false;
 		}
 	}
 }

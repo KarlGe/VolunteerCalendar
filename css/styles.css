@@ -2,19 +2,31 @@
 @import url("../fonts/LeagueGothic/webfonts/stylesheet.css");
 @import url("../fonts/Raleway/webfonts/stylesheet.css");
 *{
-	font-family: "Raleway"!important;
+	font-family: "Raleway";
+}
+body{
+	width:900px;
+	margin:auto;
 }
 main{
-	width:100em;
-	margin:4em auto 0 auto; 
+	margin:1em auto 0 auto; 
+	position: relative;
 }
 .inlineBlock{
 	display: inline-block;
 }
-.dateDash{
-	font-size: 20px; 
+.positionRelative{
+	position: relative;
 }
-
+.dateDash{
+	font-size: 2em; 
+}
+.clearFix{
+	clear: both;
+}
+.padding1emtop{
+	padding-top: 1em;
+}
 #infoMessageBox{
 	width: 500px; 
 	min-height:1em;
@@ -41,7 +53,7 @@ main{
 	width:620px;
 	margin: auto;
 }
-#submitPersonForm li{
+.inlineList li{
 	list-style: none;
 	display: inline-block;
 }
@@ -86,16 +98,123 @@ main{
 /* End Calendar override */
 
 /* Date overview */
-tr[data-href]:hover{
+td{
+	padding: 0!important;
+}
+td > a{
+	display: block;
+	padding: 8px; 
+}
+td > a:hover{
+	text-decoration: none;
+}
+tr:hover{
 	background-color: #aaa!important;
-	cursor: pointer;
 }
 /* End Date overview */
 /* Volunteer Page */
-#volunteerName{
-	border-bottom: 2px solid #AAA;
+.noActivePeriodText{
+	text-align: center;
+	padding:2em;
 }
-#volunteerName h1{
+#volunteerHeader{
+	border-bottom: 2px solid #AAA;
+	position: relative;
+}
+#volunteerHeader h1{
 	text-transform: capitalize;
+}
+#volunteerDates{
+	display: inline-block;
+}
+.dateBlock{
+	font-size: 1.5em;
+	margin-left: 1em; 
+	width:6em;
+}
+.dateBlock span{
+	position: absolute;
+	top:1.2em;
+}
+.volunteerContactInfo{
+	font-size: 1.2em;
+	position: absolute;
+	bottom:1em;
+	right:0;
+	margin-left: 1em;
+}
+.volunteerContactInfo, .volunteerContactInfo > *{
+	display: inline-block;
+}
+.volunteerContactInfo > *:nth-child(3){
+	margin-left:1em;
+}
+#volunteerHeader .dateDash{
+	position: absolute;
+	top:-33px;
+}
+#periodInfo, #transactionHistory{
+	width: 50%;
+	float: left;
+}
+#periodInfo{
+
+}
+#transactionHistory{
+	width: 50%;
+}
+#volunteerNotes{
+	padding-right: 1em;
+}
+#volunteerNotes > .edit{
+	padding: 1em;
+	border-radius: 3px;
+	height:300px;
+	overflow-y: scroll;
+	background-color: #EEE;
+	border-bottom-style: none;
+}
+#contractSigned{
+	position: relative;
+	padding-top:1em;
+	width: 20em;
+	margin: auto;
+}
+#contractSigned span{
+	font-size: 2em;
+	display: inline-block;
+	height: 1.2em;
+}
+#contractSigned .checkBox{
+	position: absolute;
+	margin: 0.1em 0 0 0.4em;
+}
+.checkBox{
+	width:1.2em;
+	background-color: #DDD;
+	border:1px solid #BBB;
+	display: inline-block;
+	border-radius: .1em;
+}
+.checked{
+}
+.checkBox:hover{
+	cursor: pointer;
+}
+#transactionDate{
+	width:90px;
+}
+#transactionAmount{
+	width:90px;
+}
+#transactionSubmit{
+	margin-top: .5em;
+}
+#submitTransactionForm ul{
+	padding-left:0!important;
+}
+#transactionHistoryTotal{
+	font-size: 2em;
+	text-align: center;
 }
 /* End volunteer page */

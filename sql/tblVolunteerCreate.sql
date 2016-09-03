@@ -11,13 +11,21 @@ CREATE TABLE volunteer (
 );
 CREATE TABLE volunteerHistory(
 	ID SMALLINT( 3 ) NOT NULL AUTO_INCREMENT,
-	volunteeeID SMALLINT( 3 ) NOT NULL,
+	volunteerID SMALLINT( 3 ) NOT NULL,
 	dateFrom DATE NOT NULL,
 	dateTo DATE NOT NULL,
-	moneyOwed INT(5),
-	moneyPaid INT(5),
 	contractSigned BOOLEAN,
 	reg_date TIMESTAMP,
 	active BOOLEAN NOT NULL,
 	PRIMARY KEY ( ID )
+);
+CREATE TABLE volunteerTransactionHistory(
+	ID SMALLINT( 3 ) NOT NULL AUTO_INCREMENT,
+	periodID SMALLINT( 3 ) NOT NULL,
+	transactionDate DATE NOT NULL,
+	description VARCHAR(255),
+	reg_date TIMESTAMP,
+	amount INT(10),
+	paidByVolunteer BOOLEAN NOT NULL,
+	PRIMARY KEY( ID )
 );

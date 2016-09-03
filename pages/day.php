@@ -3,9 +3,10 @@ include '../includes/header.php';
 
 $date = $_GET["date"];
 
-$volunteers = $dbHandler->GetVolunteersAndPeriodOnDate($date);
+$volunteers = $dbHandler->GetVolunteersWithPeriodOnDate($date);
 
 ?>
+
 <table class="table table-striped">
 	<tr>
 		<th>Name</th>
@@ -13,10 +14,10 @@ $volunteers = $dbHandler->GetVolunteersAndPeriodOnDate($date);
 		<th>Date to</th>
 	</tr>
 <?php foreach ($volunteers as $volunteer): ?>
-	<tr data-href="volunteer.php?id=<?php echo $volunteer["volunteerID"] ?>">	
-		<th><?php echo $volunteer["name"] ?></th>	
-		<th><?php echo $volunteer["dateFrom"] ?></th>	
-		<th><?php echo $volunteer["dateTo"] ?></th>	
+	<tr>	
+		<td><a href="volunteerPage.php?id=<?php echo $volunteer["volunteerID"] ?>"><?php echo $volunteer["name"] ?></a></td>	
+		<td><a href="volunteerPage.php?id=<?php echo $volunteer["volunteerID"] ?>"><?php echo date('d M Y', strtotime($volunteer["dateFrom"])) ?></a></td>	
+		<td><a href="volunteerPage.php?id=<?php echo $volunteer["volunteerID"] ?>"><?php echo date('d M Y', strtotime($volunteer["dateFrom"])) ?></a></td>	
 	</tr>
 <?php endforeach; ?>
 </table>

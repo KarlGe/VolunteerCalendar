@@ -16,7 +16,10 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/jquery-ui.css" rel="stylesheet">
     <link href="../css/calendar.css" rel="stylesheet">
+    <link href="../js/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/media-queries.css" rel="stylesheet">
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
