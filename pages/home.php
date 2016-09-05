@@ -26,9 +26,7 @@ include '../includes/header.php';
 
 <div id="calendarWrapper">
 	<?php 
-		include("../php/classes/Calendar.php"); 
-		$calendar = new Calendar();
-		echo $calendar->show();
+		include("../php/calendarPrinter.php"); 
 	?>
 </div>
 

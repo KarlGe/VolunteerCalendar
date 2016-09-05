@@ -41,10 +41,11 @@ $( document ).ready(function() {
 			success: function(data)
 			{
 				ShowMessage(data);
+				GetCalendar($("#calendarWrapper"));
 			}
 		});
 		event.preventDefault();
-	})
+	});
 	$("#submitTransactionForm").submit(function(event){
 		var url = "../php/SubmitTransaction.php"; // the script where you handle the form input.
 	    $.ajax({
@@ -57,7 +58,7 @@ $( document ).ready(function() {
 			}
 		});
 		event.preventDefault();
-	})
+	});
 	$('#contractCheckBox').click(function() {
 		if(!waitingForReply){
 			ContractCheckBoxClicked($(this));
@@ -159,4 +160,14 @@ function SetcurrentBalance(){
 		}
 	});
 	$('#transactionHistoryTotal span').html(total);
+}
+function GetCalendar(element){	
+	$.ajax({
+		type: "POST",
+		url: "../php/CalendarPrinter.php",
+		success: function(data)
+		{
+			element.html(data);
+		}
+	});
 }

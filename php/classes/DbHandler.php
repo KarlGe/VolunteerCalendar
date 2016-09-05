@@ -237,6 +237,23 @@ class DbHandler{
 			return false;
 		}
 	}
+	function GetTransactionsOnDate($date){
+		$volunteers = array();
+		$sql = "
+		SELECT 
+			volunteer.name, 
+			volunteer.ID volunteerID, 
+			volunteerHistory.ID as periodID, 
+			transaction.* 
+		FROM 
+			volunteertransactionhistory as transaction
+		LEFT JOIN volunteerHistory on transaction.periodID = volunteerHistory.ID
+		LEFT JOIN volunteer on volunteerHistory.volunteerID = volunteer.ID
+
+		";
+		$results = $this->ExecuteFetch($sql,null);
+		return $results;
+	}
 	function AddPersonWithPeriod($name, $dateFrom, $dateTo, $phoneNum = null, $notes = null, $gender = null, $nationalityID = null, $email = null){
 		$volunteerID = $this->AddPerson($name);
 		//If there is an error, AddPerson will return an array with false at the first index and an error message on the second index, so we return that to display on the front end

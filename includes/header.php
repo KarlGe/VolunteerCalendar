@@ -1,6 +1,6 @@
 <?php
 
-	include '../php/config.php';
+	require_once('../php/config.php');
 
 ?>
 <!DOCTYPE html>

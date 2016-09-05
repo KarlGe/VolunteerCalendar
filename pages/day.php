@@ -4,6 +4,7 @@ include '../includes/header.php';
 $date = $_GET["date"];
 
 $volunteerPeriods = $dbHandler->GetVolunteersWithPeriodOnDate($date);
+$transactions = $dbHandler->GetTransactionsOnDate($date);
 
 ?>
 <h2>Volunteers</h2>
