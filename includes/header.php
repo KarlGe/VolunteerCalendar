@@ -32,7 +32,7 @@
   <body>
   <header>
     <div id="headerContent">
-      <H1><a href="home.php">Felidae Awesome Calendar</a></H1> 
+      <H1><a href="home.php">Volunteer Calendar</a></H1> 
       <article id="volunteerSearch">
         <input id="search-hidden-mode" name="search" placeholder="Search for volunteers here" type="text" data-list=".hidden_mode_list" data-nodata="No results found" autocomplete="off">
         <hr style="display: none;"/>
